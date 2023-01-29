@@ -38,7 +38,6 @@ def print_data():
         for i in range(len(data_first)):
                 if data_first[i] == '\n' or data_first[i] == '\n\n'or i == len(data_first) - 1:
                     data_first_second.append(''.join(data_first[j:i]))
-                    # print(data_first_second)
                     j = i
         data_first = data_first_second
         print(''.join(data_first))
@@ -58,10 +57,8 @@ def print_data():
 
 def put_data():
 
-    data_first, data_second = print_data()
-  
-    print(data_first)
-        
+    data_first, data_second = print_data()  
+          
     var = int(input(f"В каком файле изменить данные? "))
 
     while var != 1 and var != 2:
@@ -92,8 +89,6 @@ def put_data():
         else:
             data_first = data_first[:n - 1] + [f'\n{name}\n{surname}\n{phone}\n{adress}\n'] + data_first[n:]
 
-        print(data_first)
-
         with open('data_first_variant.csv', 'w') as file:           
             for i in data_first:
                 file.write(i)
@@ -117,10 +112,9 @@ def put_data():
 
 
 def delete_data():
-    data_first, data_second = print_data()
-  
-    print(data_first)
-       
+
+    data_first, data_second = print_data()  
+         
     var = int(input(f"В каком файле удалить данные? "))
 
     while var != 1 and var != 2:
@@ -144,11 +138,10 @@ def delete_data():
         else:
             data_first = data_first[:n - 1] + data_first[n:]
 
-        print(data_first)
-
-        # with open('data_first_variant.csv', 'w') as file:           
-        #     for i in data_first:
-        #         file.write(i)
+       
+        with open('data_first_variant.csv', 'w') as file:           
+            for i in data_first:
+                file.write(i)
         
 
     else:
